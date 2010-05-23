@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<overlay id="imecontroller"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+  <window id="main-window">
+		<script type="application/x-javascript" src="browser.js"></script>
+		<html:object 
+			id="ime-controller-swf"
+			type="application/x-shockwave-flash"
+			data="chrome://imecontroller/content/IMEController.swf"
+			width="0" height="0" 
+		/>
+</window>
+</overlay>
