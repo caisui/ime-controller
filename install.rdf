@@ -4,7 +4,7 @@
     <em:id>imecontroller@localhost</em:id>
     <em:type>2</em:type>
     <em:name>IME Controller</em:name>
-    <em:version>0.0.0</em:version>
+    <em:version>0.0.1</em:version>
     <em:targetApplication>
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- Firefox -->

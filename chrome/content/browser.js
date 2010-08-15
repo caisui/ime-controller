@@ -13,14 +13,14 @@
     //http://www.adobe.com/jp/devnet/flashplayer/articles/flash_player_admin_guide/flash_player_admin_guide.pdf
     //P.83
     //
-    //■ Windows Vista C:\Users\ユーザ名\AppData\Roaming\Macromedia\Flash Player\#Security\FlashPlayerTrust
-    //■ Windows 2000 および Windows XP C:\Documents and Settings\ユーザ名\Application Data\Macromedia\Flash Player\#Security\FlashPlayerTrust
-    //■ Macintosh /Users/ユーザ名/Library/Preferences/Macromedia/Flash Player/#Security\FlashPlayerTrust
-    //■ Linux GNU-Linux ~/.macromedia/#Security/FlashPlayerTrust
+    //- Windows Vista C:\Users\ユーザ名\AppData\Roaming\Macromedia\Flash Player\#Security\FlashPlayerTrust
+    //- Windows 2000 および Windows XP C:\Documents and Settings\ユーザ名\Application Data\Macromedia\Flash Player\#Security\FlashPlayerTrust
+    //- Macintosh /Users/ユーザ名/Library/Preferences/Macromedia/Flash Player/#Security\FlashPlayerTrust
+    //- inux GNU-Linux ~/.macromedia/#Security/FlashPlayerTrust
     //
 
-    const trust_path = (isLinux ? [".macromedia"],["Macromedia", "Flash Player"])
-    .concat(["#Security","FlashPlayerTrust"]);
+    const trust_path = (isLinux ? [".macromedia"] : ["Macromedia", "Flash Player"])
+        .concat(["#Security","FlashPlayerTrust"]);
 
     function init() {
         const prop = Cc["@mozilla.org/file/directory_service;1"]
@@ -51,6 +51,9 @@
             Application.restart();
         }
         let ime = document.getElementById("ime-controller-swf");
+        let frame = document.getElementById("ime-controller-frame");
+        if(!frame) return;
+        let ime = frame.contentDocument.getElementById("ime-controller-swf");
         if(!ime.getIMEStatus) return;
 
         //crate object

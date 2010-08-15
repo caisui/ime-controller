@@ -5,11 +5,6 @@
   xmlns:html="http://www.w3.org/1999/xhtml">
   <window id="main-window">
 		<script type="application/x-javascript" src="browser.js"></script>
-		<html:object 
-			id="ime-controller-swf"
-			type="application/x-shockwave-flash"
-			data="chrome://imecontroller/content/IMEController.swf"
-			width="0" height="0" 
-		/>
+		<iframe id="ime-controller-frame" collapsed="true" src="chrome://imecontroller/content/content.html"/>
 </window>
 </overlay>
