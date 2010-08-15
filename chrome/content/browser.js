@@ -31,7 +31,7 @@
         for (let[,p] in Iterator(flash_file.split("/"))) {
             file.append(p);
         }
-        if (!file.exists()||!file.isFile()) return;
+        if (!file.exists() || !file.isFile()) return;
         let trust_file = file.path;
 
         file = prop.get(propName, Ci.nsIFile);
@@ -59,7 +59,7 @@
         //crate object
         gIMEController = { mode: {} };
         for(let [nm,text] in Iterator(ime.modes())) {
-            let name=nm;
+            let name = nm;
             gIMEController[name] = function () { ime[name](); };
             gIMEController.mode[text] = text;
         }
@@ -76,11 +76,11 @@
 
             return value;
         });
-        gIMEController.removeTrustFile=function(){
+        gIMEController.removeTrustFile = function() {
             file.remove(false);
         };
 
-        Application.extensions.get(ext_name).events.addListener("uninstall",function () { file.remove(false); });
+        Application.extensions.get(ext_name).events.addListener("uninstall", function () { file.remove(false); });
     }
     window.addEventListener("load", init, false);
 })();
