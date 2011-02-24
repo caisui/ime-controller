@@ -27,7 +27,6 @@ dispose.__defineSetter__("$push", function (v) this.push(v));
 
 function registerObject(aWindow) {
     const name = "gIMEManager";
-    console.log(aWindow, observer.obj);
 
     aWindow[name] = observer.obj;
     return function () delete aWindow[name];
@@ -69,7 +68,6 @@ const observer = {
             let hwnd = api.GetFocus();
             let himc = api.ImmGetContext(hwnd);
             let ret = func(himc);
-            let enabled = api.ImmGetOpenStatus(himc);
             api.ImmReleaseContext(hwnd, himc);
             return ret;
         }
@@ -136,9 +134,7 @@ function startup(data, reason) {
 
 function shutdown(data, reason) {
     console.logReason(arguments);
-    try {
     dispose.forEach(function (f) f());
-    }catch(ex){Cu.reportError(ex);}
 }
 function install(data, reason) {
     console.logReason(arguments);
